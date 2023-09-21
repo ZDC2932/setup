@@ -28,11 +28,6 @@ Public Class Form1
 
         MessageBox.Show("遥遥领先，下载成功！！！")
 
-        ' 字体文件路径
-        Dim fontFilePath As String = Path.Combine(currentDirectory, "阿里巴巴普惠体 R.ttf")
-
-        ' 安装字体
-        InstallFont(fontFilePath)
     End Sub
 
 
