@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Drawing.Bitmap 类型的本地化资源。
         '''</summary>
-        Friend ReadOnly Property IT互联网科技风区块链网络安全横版banner() As System.Drawing.Bitmap
+        Friend ReadOnly Property background() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("IT互联网科技风区块链网络安全横版banner", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("background", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

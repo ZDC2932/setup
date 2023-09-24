@@ -26,9 +26,9 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
@@ -50,12 +50,17 @@ Partial Class Form1
         '
         'TabPage1
         '
-        Me.TabPage1.BackgroundImage = Global.setup.My.Resources.Resources.IT互联网科技风区块链网络安全横版banner
+        Me.TabPage1.BackgroundImage = Global.setup.My.Resources.Resources.background
         Me.TabPage1.Controls.Add(Me.ProgressBar1)
         Me.TabPage1.Controls.Add(Me.Button1)
         resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ProgressBar1
+        '
+        resources.ApplyResources(Me.ProgressBar1, "ProgressBar1")
+        Me.ProgressBar1.Name = "ProgressBar1"
         '
         'TabPage2
         '
@@ -68,11 +73,6 @@ Partial Class Form1
         resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'ProgressBar1
-        '
-        resources.ApplyResources(Me.ProgressBar1, "ProgressBar1")
-        Me.ProgressBar1.Name = "ProgressBar1"
         '
         'Form1
         '

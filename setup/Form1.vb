@@ -3,7 +3,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.IO
 Imports System.Diagnostics
 Imports System.Drawing.Text
-
+Imports Microsoft.Win32
 Public Class Form1
     Dim currentDirectory As String = My.Computer.FileSystem.CurrentDirectory
 
@@ -13,8 +13,8 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
-        DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/阿里巴巴普惠体 R.ttf", Path.Combine(currentDirectory, "阿里巴巴普惠体 R.ttf"))
+        '
+        'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/阿里巴巴普惠体 R.ttf", Path.Combine(currentDirectory, "阿里巴巴普惠体 R.ttf"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/s1.bat", Path.Combine(currentDirectory, "s1.bat"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/s2.bat", Path.Combine(currentDirectory, "s2.bat"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/s3.bat", Path.Combine(currentDirectory, "s3.bat"))
@@ -25,19 +25,78 @@ Public Class Form1
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/99.ico", Path.Combine(currentDirectory, "99.ico"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/linkcv3.vbs", Path.Combine(currentDirectory, "linkcv3.vbs"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/鹏燊云平台3.bat", Path.Combine(currentDirectory, "鹏燊云平台3.bat"))
-
+        'Fontinstall()
+        Main()
+        Installpage()
+        Installgoogle()
         MessageBox.Show("遥遥领先，下载成功！！！")
 
     End Sub
 
 
-    Public Sub check_version(ByVal filepath As String)
+    Public Sub Check_version(ByVal filepath As String)
+
+    End Sub
+
+    Public Sub Fontinstall()
+        Dim fontName As String = "阿里巴巴普惠体 R"
+        If CheckFontExists(fontName) Then
+            Console.WriteLine($"字体  '{fontName}'  存在。")
+        Else
+            Console.WriteLine($"字体  '{fontName}'  不存在。")
+            DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/阿里巴巴普惠体 R.ttf", Path.Combine(currentDirectory, "阿里巴巴普惠体 R.ttf"))
+            StartLocalProcess(Path.Combine(currentDirectory, "installfont.bat"))
+        End If
 
 
     End Sub
 
 
+    Public Sub Installpage()
+        '下载file，如果存在可以不下载
 
+        DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
+        Dim Pagecmd As String = "msiexec /i " & Path.Combine(currentDirectory, "posetup.msi") & "/quiet"
+        runCmd(Pagecmd)
+
+    End Sub
+
+    Public Sub Installgoogle()
+        '安装谷歌浏览器
+        DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/ChromeSetup.exe", Path.Combine(currentDirectory, "ChromeSetup.exe"))
+        StartLocalProcess(Path.Combine(currentDirectory, "ChromeSetup.exe"))
+
+    End Sub
+
+    Public Sub InstallExcle()
+
+
+    End Sub
+
+    Public Sub Main()
+        Dim osVersion As String = GetOSVersion()
+
+        If osVersion.Contains("Windows 10") Then
+            Console.WriteLine("操作系统版本：Windows 10")
+        ElseIf osVersion.Contains("Windows 11") Then
+            Console.WriteLine("操作系统版本：Windows 11")
+        Else
+            Console.WriteLine("操作系统版本：" & osVersion)
+        End If
+
+
+    End Sub
+
+    Public Function GetOSVersion() As String
+        Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+        Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)
+            Dim productName As String = key.GetValue("ProductName").ToString()
+            Dim majorVersion As Integer = Integer.Parse(key.GetValue("CurrentMajorVersionNumber").ToString())
+            Dim minorVersion As Integer = Integer.Parse(key.GetValue("CurrentMinorVersionNumber").ToString())
+
+            Return $"{productName} {majorVersion}.{minorVersion}"
+        End Using
+    End Function
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
@@ -52,6 +111,17 @@ Public Class Form1
             End Try
         End Using
     End Sub
+
+
+    Public Function CheckFontExists(ByVal fontName As String) As Boolean
+        Dim fontFamilies As FontFamily() = FontFamily.Families
+        For Each fontFamily As FontFamily In fontFamilies
+            If fontFamily.Name.Equals(fontName, StringComparison.OrdinalIgnoreCase) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Sub ExtractAndWriteVersion(filePath As String)
         Try
@@ -86,6 +156,30 @@ Public Class Form1
         Return result
 
     End Function
+
+
+    '这是程序启动的方法
+
+    Public Sub StartLocalProcess(ByVal exeName As String)
+        Try
+            Dim process As New Process()
+            process.StartInfo.FileName = exeName
+            process.StartInfo.UseShellExecute = False
+            process.StartInfo.CreateNoWindow = True
+
+            process.Start()
+            process.WaitForExit()
+
+            Dim exitCode As Integer = process.ExitCode
+            If exitCode <> 0 Then
+                Console.WriteLine($"Error: {exitCode}")
+            Else
+                Console.WriteLine($"Process exited with code {exitCode}")
+            End If
+        Catch ex As Exception
+            Console.WriteLine($"Error: unable to start process: {ex.Message}")
+        End Try
+    End Sub
 
 
     Private Sub CopyWithProgress(ByVal ParamArray filenames As String())
