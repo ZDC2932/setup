@@ -26,9 +26,12 @@ Public Class Form1
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/linkcv3.vbs", Path.Combine(currentDirectory, "linkcv3.vbs"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/鹏燊云平台3.bat", Path.Combine(currentDirectory, "鹏燊云平台3.bat"))
         'Fontinstall()
-        Main()
-        Installpage()
-        Installgoogle()
+        'Main()
+        Getwinver()
+        'Console.WriteLine()
+
+        'Installpage()
+        'Installgoogle()
         MessageBox.Show("遥遥领先，下载成功！！！")
 
     End Sub
@@ -73,30 +76,68 @@ Public Class Form1
 
     End Sub
 
-    Public Sub Main()
-        Dim osVersion As String = GetOSVersion()
-
-        If osVersion.Contains("Windows 10") Then
-            Console.WriteLine("操作系统版本：Windows 10")
-        ElseIf osVersion.Contains("Windows 11") Then
-            Console.WriteLine("操作系统版本：Windows 11")
-        Else
-            Console.WriteLine("操作系统版本：" & osVersion)
-        End If
-
-
-    End Sub
-
     Public Function GetOSVersion() As String
         Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
         Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)
-            Dim productName As String = key.GetValue("ProductName").ToString()
             Dim majorVersion As Integer = Integer.Parse(key.GetValue("CurrentMajorVersionNumber").ToString())
-            Dim minorVersion As Integer = Integer.Parse(key.GetValue("CurrentMinorVersionNumber").ToString())
-
-            Return $"{productName} {majorVersion}.{minorVersion}"
+            Return $" {majorVersion}"
         End Using
     End Function
+
+    Public Function GetOSproductName() As String
+        Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+        Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)
+            Dim productName As String = key.GetValue("ProductName").ToString()
+            Return $" {productName}"
+        End Using
+    End Function
+    Public Sub Getwinver()
+        Dim osMajor As Integer = GetOSVersion()
+        Select Case osMajor
+
+            Case 6
+                Console.WriteLine("操作系统：Windows Vista 或 Windows Server 2008")
+
+            Case 6.1
+                Console.WriteLine("操作系统：Windows 7 或 Windows Server 2008 R2")
+
+            Case 6.2
+                Console.WriteLine("操作系统：Windows 8 或 Windows Server 2012")
+
+            Case 6.3
+                Console.WriteLine("操作系统：Windows 8.1 或 Windows Server 2012 R2")
+
+            Case 10
+                Console.WriteLine("操作系统：Windows 10 或 Windows Server 2016 或 Windows Server 2019")
+
+            Case 11
+                Console.WriteLine("操作系统：Windows 11")
+
+            Case Else
+
+                Console.WriteLine("操作系统：未知")
+
+        End Select
+
+    End Sub
+
+
+    Sub Wtf(message As String)
+        Dim logDirectory As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs")
+        Dim logFile As String = Path.Combine(logDirectory, "log.txt")
+
+        ' 检查logs目录是否存在，如果不存在则创建
+        If Not Directory.Exists(logDirectory) Then
+            Directory.CreateDirectory(logDirectory)
+        End If
+
+        ' 使用StreamWriter写入log文件
+        Using writer As New StreamWriter(logFile, True)
+            writer.WriteLine(DateTime.Now.ToString() & " - " & message)
+        End Using
+    End Sub
+
+
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
