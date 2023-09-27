@@ -26,11 +26,8 @@ Public Class Form1
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/linkcv3.vbs", Path.Combine(currentDirectory, "linkcv3.vbs"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/鹏燊云平台3.bat", Path.Combine(currentDirectory, "鹏燊云平台3.bat"))
         'Fontinstall()
-        'Main()
         Getwinver()
-        'Console.WriteLine()
-
-        'Installpage()
+        Installpage()
         'Installgoogle()
         MessageBox.Show("遥遥领先，下载成功！！！")
 
@@ -38,7 +35,7 @@ Public Class Form1
 
 
     Public Sub Check_version(ByVal filepath As String)
-
+        Getwinver()
     End Sub
 
     Public Sub Fontinstall()
@@ -50,17 +47,18 @@ Public Class Form1
             DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/阿里巴巴普惠体 R.ttf", Path.Combine(currentDirectory, "阿里巴巴普惠体 R.ttf"))
             StartLocalProcess(Path.Combine(currentDirectory, "installfont.bat"))
         End If
-
-
     End Sub
 
 
     Public Sub Installpage()
         '下载file，如果存在可以不下载
 
-        DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
-        Dim Pagecmd As String = "msiexec /i " & Path.Combine(currentDirectory, "posetup.msi") & "/quiet"
-        runCmd(Pagecmd)
+        'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
+        Console.WriteLine(currentDirectory)
+        Console.WriteLine(Path.Combine(currentDirectory, "Installpage.bat"))
+        StartLocalProcess(Path.Combine(currentDirectory, "Installpage.bat"))
+        'Dim Pagecmd As String = "msiexec /i " & Path.Combine(currentDirectory, "posetup.msi") & "/quiet"
+        'runCmd(Pagecmd)
 
     End Sub
 
@@ -76,6 +74,12 @@ Public Class Form1
 
     End Sub
 
+    Public Sub InstallIE()
+
+
+    End Sub
+
+
     Public Function GetOSVersion() As String
         Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
         Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)
@@ -84,6 +88,7 @@ Public Class Form1
         End Using
     End Function
 
+    '获取Windows产品名称
     Public Function GetOSproductName() As String
         Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
         Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)

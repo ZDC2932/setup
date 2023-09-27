@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="bin\Debug\installfont.bat" />
+    <None Include="bin\Debug\Installpage.bat" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -129,6 +130,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\Installpage.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\installfont.bat" />
