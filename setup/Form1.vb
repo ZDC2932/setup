@@ -25,17 +25,49 @@ Public Class Form1
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/99.ico", Path.Combine(currentDirectory, "99.ico"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/linkcv3.vbs", Path.Combine(currentDirectory, "linkcv3.vbs"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/鹏燊云平台3.bat", Path.Combine(currentDirectory, "鹏燊云平台3.bat"))
-        'Fontinstall()
-        Getwinver()
-        Installpage()
-        'Installgoogle()
-        MessageBox.Show("遥遥领先，下载成功！！！")
+
+        MessageBox.Show("遥遥领先，执行成功！！！")
+
+    End Sub
+
+    Public Function GetRichTextBox1() As RichTextBox
+        Return RichTextBox1
+    End Function
+
+    'ST1 生成配置文件
+
+
+    Public Sub Config()
+        RichTextBox1.Text = GetOSVersion() & GetOSproductName()
+
+        'GetOSVersion()
+        'Getwinver()
+
+
+        '检查IE浏览器
+
+        '检查page
+
+        '检查谷歌浏览器
+
+        '检查Excel
+
+        '检查WPS
+
 
     End Sub
 
 
+
+
+
+
+    '版本判断，大于win10
+    'for /f "tokens=4,5 delims=. " %%a in ('ver') do if %%a%%b geq 60 goto new
     Public Sub Check_version(ByVal filepath As String)
-        Getwinver()
+
+
+
     End Sub
 
     Public Sub Fontinstall()
@@ -55,7 +87,6 @@ Public Class Form1
 
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
         Console.WriteLine(currentDirectory)
-        Console.WriteLine(Path.Combine(currentDirectory, "Installpage.bat"))
         StartLocalProcess(Path.Combine(currentDirectory, "Installpage.bat"))
         'Dim Pagecmd As String = "msiexec /i " & Path.Combine(currentDirectory, "posetup.msi") & "/quiet"
         'runCmd(Pagecmd)
@@ -75,7 +106,7 @@ Public Class Form1
     End Sub
 
     Public Sub InstallIE()
-
+        StartLocalProcess(Path.Combine(currentDirectory, "Installie.bat"))
 
     End Sub
 
@@ -184,7 +215,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Public Function runCmd(ByVal strCMD As String) As String
+    Public Function Runcmd(ByVal strCMD As String) As String
         Dim p As New Process
         With p.StartInfo
             .FileName = "cmd.exe"
@@ -297,4 +328,14 @@ Public Class Form1
         SMTO_ABORTIFHUNG = 2
         SMTO_NOTIMEOUTIFNOTHUNG = 8
     End Enum
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Public Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.MouseDown
+
+        RichTextBox1.Text = "主版本号 ：" & GetOSVersion() & vbNewLine & "版本名称：" & GetOSproductName()
+
+    End Sub
 End Class

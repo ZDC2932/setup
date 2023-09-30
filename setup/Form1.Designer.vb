@@ -29,8 +29,10 @@ Partial Class Form1
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -70,9 +72,15 @@ Partial Class Form1
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.RichTextBox1)
         resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'RichTextBox1
+        '
+        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
+        Me.RichTextBox1.Name = "RichTextBox1"
         '
         'Form1
         '
@@ -83,6 +91,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -93,4 +102,5 @@ Partial Class Form1
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

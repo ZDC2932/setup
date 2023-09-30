@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,9 +9,9 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("setup")>
+<Assembly: AssemblyTitle("鹏燊助手")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyCompany("pengshen")>
 <Assembly: AssemblyProduct("setup")>
 <Assembly: AssemblyCopyright("Copyright ©  2023")>
 <Assembly: AssemblyTrademark("")>
@@ -31,5 +32,6 @@ Imports System.Runtime.InteropServices
 '通过使用 "*"，如下所示:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.0.0.1")>
+<Assembly: AssemblyFileVersion("1.0.0.1")>
+<Assembly: NeutralResourcesLanguage("zh-CN")>
