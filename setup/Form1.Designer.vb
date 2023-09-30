@@ -23,23 +23,28 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.inpage = New System.Windows.Forms.LinkLabel()
+        Me.pengshen = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.inoffice = New System.Windows.Forms.LinkLabel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.inchrome = New System.Windows.Forms.LinkLabel()
+        Me.inwps = New System.Windows.Forms.LinkLabel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Button1
-        '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -50,37 +55,122 @@ Partial Class Form1
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
-        'TabPage1
-        '
-        Me.TabPage1.BackgroundImage = Global.setup.My.Resources.Resources.background
-        Me.TabPage1.Controls.Add(Me.ProgressBar1)
-        Me.TabPage1.Controls.Add(Me.Button1)
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'ProgressBar1
-        '
-        resources.ApplyResources(Me.ProgressBar1, "ProgressBar1")
-        Me.ProgressBar1.Name = "ProgressBar1"
-        '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label4)
+        Me.TabPage2.Controls.Add(Me.Label3)
+        Me.TabPage2.Controls.Add(Me.Label2)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Controls.Add(Me.pengshen)
+        Me.TabPage2.Controls.Add(Me.LinkLabel1)
+        Me.TabPage2.Controls.Add(Me.inwps)
+        Me.TabPage2.Controls.Add(Me.inchrome)
+        Me.TabPage2.Controls.Add(Me.inoffice)
+        Me.TabPage2.Controls.Add(Me.inpage)
         resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.RichTextBox1)
         resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'RichTextBox1
+        'TabPage1
         '
-        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
-        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.TabPage1.BackColor = System.Drawing.Color.White
+        Me.TabPage1.BackgroundImage = Global.setup.My.Resources.Resources.digital_71cb488d
+        Me.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TabPage1.Controls.Add(Me.CheckBox2)
+        Me.TabPage1.Controls.Add(Me.CheckBox1)
+        Me.TabPage1.Controls.Add(Me.ProgressBar1)
+        Me.TabPage1.Controls.Add(Me.Button1)
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
+        Me.TabPage1.Name = "TabPage1"
+        '
+        'ProgressBar1
+        '
+        resources.ApplyResources(Me.ProgressBar1, "ProgressBar1")
+        Me.ProgressBar1.Name = "ProgressBar1"
+        '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.BackColor = System.Drawing.Color.DarkTurquoise
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'CheckBox1
+        '
+        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
+        Me.CheckBox1.Checked = True
+        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        resources.ApplyResources(Me.CheckBox2, "CheckBox2")
+        Me.CheckBox2.Checked = True
+        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'inpage
+        '
+        resources.ApplyResources(Me.inpage, "inpage")
+        Me.inpage.Name = "inpage"
+        Me.inpage.TabStop = True
+        '
+        'pengshen
+        '
+        resources.ApplyResources(Me.pengshen, "pengshen")
+        Me.pengshen.Name = "pengshen"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
+        '
+        'inoffice
+        '
+        resources.ApplyResources(Me.inoffice, "inoffice")
+        Me.inoffice.Name = "inoffice"
+        Me.inoffice.TabStop = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.Name = "Label2"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.Name = "Label3"
+        '
+        'inchrome
+        '
+        resources.ApplyResources(Me.inchrome, "inchrome")
+        Me.inchrome.Name = "inchrome"
+        Me.inchrome.TabStop = True
+        '
+        'inwps
+        '
+        resources.ApplyResources(Me.inwps, "inwps")
+        Me.inwps.Name = "inwps"
+        Me.inwps.TabStop = True
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
+        '
+        'LinkLabel1
+        '
+        resources.ApplyResources(Me.LinkLabel1, "LinkLabel1")
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.TabStop = True
         '
         'Form1
         '
@@ -90,17 +180,29 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Public WithEvents TabControl1 As TabControl
+    Public WithEvents Button1 As Button
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents inpage As LinkLabel
+    Friend WithEvents pengshen As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents inoffice As LinkLabel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents inwps As LinkLabel
+    Friend WithEvents inchrome As LinkLabel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

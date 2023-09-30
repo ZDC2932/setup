@@ -4,7 +4,29 @@ Imports System.IO
 Imports System.Diagnostics
 Imports System.Drawing.Text
 Imports Microsoft.Win32
+Imports System.Configuration
+Imports System.Security.Cryptography.X509Certificates
+Imports Microsoft.Office.Interop.Excel
+Imports System.Net.Http.Headers
+Imports Microsoft
+
 Public Class Form1
+    '主要配置变量
+    Public ConfigFilepath As String
+    Public winver As Integer
+    Public winname As String
+    Public IEinstalled As Boolean
+    Public IE_version As String
+    Public Pageinstalled As Boolean
+    Public Page_version As String
+    Public Google_installed As Boolean
+    Public Google_version As String
+    Public Excelinstalled As Boolean
+    Public Excel_version As String
+    Public Wpsinstalled As Boolean
+    Public Wps_version As String
+    Public Wps_rootpath As String
+    Public Excel_rootpath As String
     Dim currentDirectory As String = My.Computer.FileSystem.CurrentDirectory
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -25,20 +47,52 @@ Public Class Form1
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/99.ico", Path.Combine(currentDirectory, "99.ico"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/linkcv3.vbs", Path.Combine(currentDirectory, "linkcv3.vbs"))
         'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/鹏燊云平台3.bat", Path.Combine(currentDirectory, "鹏燊云平台3.bat"))
-
+        Config()
         MessageBox.Show("遥遥领先，执行成功！！！")
 
     End Sub
 
-    Public Function GetRichTextBox1() As RichTextBox
-        Return RichTextBox1
-    End Function
 
-    'ST1 生成配置文件
+    'Public Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.MouseDown
 
+    '    RichTextBox1.Text = "主版本号 ：" & GetOSVersion() & vbNewLine & "版本名称：" & GetOSproductName()
+    '    RichTextBox1.AppendText(vbNewLine & "page_version：" & Checkpage())
+    '    Excelck()
+    '    RichTextBox1.AppendText(vbNewLine & "excelinstalled：" & Excelinstalled)
+    '    RichTextBox1.AppendText(vbNewLine & "excel_version：" & Excel_version)
+    '    Ggck()
+    '    RichTextBox1.AppendText(vbNewLine & "googleinstalled：" & Google_installed)
+    '    RichTextBox1.AppendText(vbNewLine & "google_version：" & Google_version)
+    '    Wpsck()
+    '    RichTextBox1.AppendText(vbNewLine & "Wpsinstalled：" & Wpsinstalled)
+    '    RichTextBox1.AppendText(vbNewLine & "Wps_version：" & Wps_version)
+    '    RichTextBox1.AppendText(vbNewLine & "Wps_rootpath：" & Wps_rootpath)
+    'End Sub
+
+    'ST1 生成配置文件 对主要变量赋值
 
     Public Sub Config()
-        RichTextBox1.Text = GetOSVersion() & GetOSproductName()
+
+        winver = GetOSVersion()
+        winname = GetOSproductName()
+
+        IE_version = Getappver("C:\Program Files\Internet Explorer\iexplore.exe")
+        Pageinstalled = False
+        Page_version = Checkpage()
+        Google_installed = False
+        Google_version = 1
+        Excelinstalled = False
+        Excel_version = 1
+        Wpsinstalled = False
+        Wps_version = 11
+
+
+        '  使用  File.AppendAllText  方法将内容追加到文件   
+
+
+        'File.AppendAllText(Filepath, content)
+
+        'RichTextBox1.Text = GetOSVersion() & GetOSproductName()
 
         'GetOSVersion()
         'Getwinver()
@@ -53,23 +107,132 @@ Public Class Form1
         '检查Excel
 
         '检查WPS
+        ConfigFilepath = Path.Combine(currentDirectory, "config.ini")  '指定要写入的文件路径   
+        Dim content As String = "PC版本号：" & GetOSVersion() & vbNewLine & "PC产品名称：" & GetOSproductName()  '要写入的内容
+        File.WriteAllText(ConfigFilepath, content)
+
+    End Sub
+    'page 检查方法
+    Public Function Checkpage()
+        Dim Pv As String
+        Pv = 0
+        Dim Pagepath = "C:\Program Files (x86)\Zhuozhengsoft\PageOfficeClient\POBrowser.exe"
+        If File.Exists(Pagepath) Then
+            If Getappver(Pagepath) > 0 Then
+                Pageinstalled = True
+                Pv = Getappver(Pagepath)
+            End If
+        Else
+            Pagepath = "C:\Program Files\Zhuozhengsoft\PageOfficeClient\POBrowser.exe"
+            If File.Exists(Pagepath) Then
+                If Getappver(Pagepath) > 0 Then
+                    Pv = Getappver(Pagepath)
+                End If
+
+            End If
+        End If
+        Return Pv
+
+    End Function
+    '检查谷歌浏览器
+    Public Sub Ggck()
+        ' 检查谷歌浏览器是否已安装
+        Dim chromeKey As String = "Software\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe"
+        Dim chromePath As String = Registry.GetValue("HKEY_LOCAL_MACHINE\" & chromeKey, "", Nothing)
+
+        If chromePath IsNot Nothing Then
+            ' 获取谷歌浏览器版本信息
+            Getappver(chromePath)
+            Console.WriteLine(Getappver(chromePath))
+            If IO.File.Exists(chromePath) Then
+                Google_version = Getappver(chromePath)
+                Google_installed = True
+
+            Else
+                Console.WriteLine("无法获取谷歌浏览器版本信息")
+                Google_version = 0
+                Google_installed = True
+
+            End If
+        Else
+            Console.WriteLine("谷歌浏览器未安装")
+            Google_installed = False
+        End If
+    End Sub
+    '检查wps
+
+    Public Sub Wpsck()
+        ' 检查 WPS Office 是否已安装
+        '计算机\HKEY_CURRENT_USER\Software\Kingsoft\Office\6.0\wpsoffice\Application Settings
+        Dim wpsKey As String = "Software\Kingsoft\Office\6.0\wpsoffice\Application Settings"
+        Dim Wpsversion As String = Registry.GetValue("HKEY_CURRENT_USER\" & wpsKey, "version", Nothing)
+        Wps_rootpath = Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Kingsoft\Office\6.0\Common", "InstallRoot", Nothing)
+
+        If Wpsversion IsNot Nothing Then
+            ' 获取 WPS Office 版本信息
+            'Dim versionInfoPath As String = IO.Path.Combine(wpsPath, "office6\wps.ini")
+            Wps_version = Wpsversion
+            Wpsinstalled = True
+
+        Else
+            Wps_version = 0
+            Wpsinstalled = False
+
+            Console.WriteLine("WPS Office 未安装")
+        End If
+    End Sub
+    Sub Excelck()
+        ' 创建 Excel 应用程序对象
+        'Dim excelApp As New Application()
+
+        '' 检查 Excel 是否已安装
+        'If excelApp Is Nothing Then
+        '    Excelinstalled = False
+        '    Console.WriteLine("Excel 未安装！")
+        'Else
+        '    ' 获取 Excel 版本信息
+        '    Excelinstalled = True
+        '    Excel_version = excelApp.Version & " (com)"
+        '    Console.WriteLine("Excel 版本: " & Excel_version)
+        'End If
+        '' 关闭 Excel 应用程序
+        'excelApp.Quit()
+        Dim Excelreg As String = "SOFTWARE\Microsoft\Office\16.0\Excel\InstallRoot"
+        Excel_rootpath = Registry.GetValue("HKEY_LOCAL_MACHINE\" & Excelreg, "Path", Nothing)
+        If Excel_rootpath IsNot Nothing Then
+            Excel_version = Getappver(Excel_rootpath & "excel.exe")
+            Excelinstalled = True
+        Else
+            Excel_version = 0
+            Excelinstalled = False
+
+        End If
+
+
+
 
 
     End Sub
+    '获取exe版本的方法
+    Public Function Getappver(exePath As String)
+        Dim fileVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(exePath)  '获取文件版本信息   
+        Dim exever As String = fileVersionInfo.ProductVersion
+        Dim index As Integer = exever.IndexOf(".")
+        Dim outstr As String
+        If index <> -1 Then
+            outstr = exever.Substring(0, index)
+        Else
+            outstr = "No match"
+        End If
 
-
-
-
+        Return outstr  '返回产品版本信息 
+    End Function
 
 
     '版本判断，大于win10
     'for /f "tokens=4,5 delims=. " %%a in ('ver') do if %%a%%b geq 60 goto new
-    Public Sub Check_version(ByVal filepath As String)
 
-
-
-    End Sub
-
+    '安装字体
     Public Sub Fontinstall()
         Dim fontName As String = "阿里巴巴普惠体 R"
         If CheckFontExists(fontName) Then
@@ -81,7 +244,7 @@ Public Class Form1
         End If
     End Sub
 
-
+    '安装page
     Public Sub Installpage()
         '下载file，如果存在可以不下载
 
@@ -93,24 +256,25 @@ Public Class Form1
 
     End Sub
 
+    '安装谷歌
     Public Sub Installgoogle()
         '安装谷歌浏览器
         DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/ChromeSetup.exe", Path.Combine(currentDirectory, "ChromeSetup.exe"))
         StartLocalProcess(Path.Combine(currentDirectory, "ChromeSetup.exe"))
 
     End Sub
-
+    '安装excel
     Public Sub InstallExcle()
 
 
     End Sub
-
+    '安装ie
     Public Sub InstallIE()
         StartLocalProcess(Path.Combine(currentDirectory, "Installie.bat"))
 
     End Sub
 
-
+    '获取系统的版本
     Public Function GetOSVersion() As String
         Dim keyPath As String = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
         Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(keyPath)
@@ -127,6 +291,7 @@ Public Class Form1
             Return $" {productName}"
         End Using
     End Function
+    '获取操作系统名称
     Public Sub Getwinver()
         Dim osMajor As Integer = GetOSVersion()
         Select Case osMajor
@@ -172,7 +337,6 @@ Public Class Form1
             writer.WriteLine(DateTime.Now.ToString() & " - " & message)
         End Using
     End Sub
-
 
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
@@ -283,35 +447,7 @@ Public Class Form1
         MessageBox.Show("安装成功！！！")
     End Sub
 
-    Sub InstallFont(fontFilePath As String)
-        If File.Exists(fontFilePath) Then
-            Try
-                ' 创建字体集合对象
-                Dim fontCollection As New PrivateFontCollection()
 
-                ' 添加字体文件到字体集合
-                fontCollection.AddFontFile(fontFilePath)
-
-                ' 获取字体族名称
-                Dim fontFamilyName As String = fontCollection.Families(0).Name
-
-                ' 创建注册表项
-                Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts", True)
-
-                ' 设置字体注册表项的值
-                regKey.SetValue(fontFamilyName, Path.GetFileName(fontFilePath), Microsoft.Win32.RegistryValueKind.String)
-
-                ' 刷新字体缓存
-                SendMessageTimeout(New IntPtr(HWND_BROADCAST), WM_FONTCHANGE, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_NORMAL, 1000, Nothing)
-
-                Console.WriteLine("字体安装成功")
-            Catch ex As Exception
-                Console.WriteLine("字体安装失败：" & ex.Message)
-            End Try
-        Else
-            Console.WriteLine("字体文件不存在")
-        End If
-    End Sub
 
     ' Windows消息常量
     Const HWND_BROADCAST As Integer = &HFFFF
@@ -333,9 +469,19 @@ Public Class Form1
 
     End Sub
 
-    Public Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.MouseDown
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
 
-        RichTextBox1.Text = "主版本号 ：" & GetOSVersion() & vbNewLine & "版本名称：" & GetOSproductName()
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles inpage.LinkClicked, inoffice.LinkClicked, inwps.LinkClicked, inchrome.LinkClicked, LinkLabel1.LinkClicked
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles pengshen.Click, Label1.Click, Label3.Click, Label2.Click, Label4.Click
 
     End Sub
 End Class
