@@ -117,11 +117,153 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.Name" xml:space="preserve">
+    <value>TabPage3</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>方正书宋简体, 10.5pt</value>
+  </data>
+  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>587, 368</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CheckBox2.Name" xml:space="preserve">
+    <value>CheckBox2</value>
+  </data>
+  <data name="&gt;&gt;CheckBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBox2.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;CheckBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CheckBox1.Name" xml:space="preserve">
+    <value>CheckBox1</value>
+  </data>
+  <data name="&gt;&gt;CheckBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBox1.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;CheckBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ProgressBar1.Name" xml:space="preserve">
+    <value>ProgressBar1</value>
+  </data>
+  <data name="&gt;&gt;ProgressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ProgressBar1.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;ProgressBar1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
+    <value>Button1</value>
+  </data>
+  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>579, 339</value>
+  </data>
+  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TabPage1.Text" xml:space="preserve">
+    <value>首次使用</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="CheckBox2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CheckBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>方正书宋简体, 12pt</value>
   </data>
@@ -179,7 +321,6 @@
   <data name="&gt;&gt;CheckBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ProgressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -252,35 +393,155 @@
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pengshen.Name" xml:space="preserve">
+    <value>pengshen</value>
+  </data>
+  <data name="&gt;&gt;pengshen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pengshen.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;pengshen.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;inIE.Name" xml:space="preserve">
+    <value>inIE</value>
+  </data>
+  <data name="&gt;&gt;inIE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inIE.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;inIE.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;inwps.Name" xml:space="preserve">
+    <value>inwps</value>
+  </data>
+  <data name="&gt;&gt;inwps.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inwps.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;inwps.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;inchrome.Name" xml:space="preserve">
+    <value>inchrome</value>
+  </data>
+  <data name="&gt;&gt;inchrome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inchrome.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;inchrome.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;inoffice.Name" xml:space="preserve">
+    <value>inoffice</value>
+  </data>
+  <data name="&gt;&gt;inoffice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inoffice.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;inoffice.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;inpage.Name" xml:space="preserve">
+    <value>inpage</value>
+  </data>
+  <data name="&gt;&gt;inpage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inpage.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;inpage.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="TabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
-  <data name="TabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="TabPage2.Size" type="System.Drawing.Size, System.Drawing">
     <value>579, 339</value>
   </data>
-  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="TabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="TabPage1.Text" xml:space="preserve">
-    <value>首次使用</value>
+  <data name="TabPage2.Text" xml:space="preserve">
+    <value>环境修复</value>
   </data>
-  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
-    <value>TabPage1</value>
+  <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
+    <value>TabPage2</value>
   </data>
-  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
+  <data name="&gt;&gt;TabPage2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TabPage2.Parent" xml:space="preserve">
     <value>TabControl1</value>
   </data>
-  <data name="&gt;&gt;TabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;TabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -444,37 +705,37 @@
   <data name="&gt;&gt;pengshen.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="LinkLabel1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="inIE.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="LinkLabel1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="inIE.Font" type="System.Drawing.Font, System.Drawing">
     <value>方正书宋简体, 12pt</value>
   </data>
-  <data name="LinkLabel1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="inIE.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="LinkLabel1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="inIE.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 145</value>
   </data>
-  <data name="LinkLabel1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="inIE.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 19</value>
   </data>
-  <data name="LinkLabel1.TabIndex" type="System.Int32, mscorlib">
+  <data name="inIE.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="LinkLabel1.Text" xml:space="preserve">
+  <data name="inIE.Text" xml:space="preserve">
     <value>安装</value>
   </data>
-  <data name="&gt;&gt;LinkLabel1.Name" xml:space="preserve">
-    <value>LinkLabel1</value>
+  <data name="&gt;&gt;inIE.Name" xml:space="preserve">
+    <value>inIE</value>
   </data>
-  <data name="&gt;&gt;LinkLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;inIE.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LinkLabel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;inIE.Parent" xml:space="preserve">
     <value>TabPage2</value>
   </data>
-  <data name="&gt;&gt;LinkLabel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;inIE.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="inwps.AutoSize" type="System.Boolean, mscorlib">
@@ -606,36 +867,6 @@
   <data name="&gt;&gt;inpage.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="TabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="TabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="TabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>579, 339</value>
-  </data>
-  <data name="TabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabPage2.Text" xml:space="preserve">
-    <value>环境修复</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
-    <value>TabPage2</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="TabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
@@ -666,33 +897,6 @@
   <data name="&gt;&gt;TabPage3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>方正书宋简体, 10.5pt</value>
-  </data>
-  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="TabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>587, 368</value>
-  </data>
-  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -701,9 +905,6 @@
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>586, 367</value>
@@ -3011,11 +3212,11 @@
         AADA/wAAwAcAAOABAADgAAAA4AAAAPAAAADwAAAA8AAAAPgAAAD4AQAA/h8AAP//AAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>鹏燊云助手</value>

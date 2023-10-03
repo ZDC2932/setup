@@ -8,7 +8,7 @@ Imports System.Configuration
 Imports System.Security.Cryptography.X509Certificates
 Imports Microsoft.Office.Interop.Excel
 Imports System.Net.Http.Headers
-Imports Microsoft
+
 
 Public Class Form1
     '主要配置变量
@@ -30,7 +30,11 @@ Public Class Form1
     Dim currentDirectory As String = My.Computer.FileSystem.CurrentDirectory
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Checkpage()
+        Excelck()
+        Wpsck()
+        Ggck()
+        Renewstat()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -71,12 +75,29 @@ Public Class Form1
 
     'ST1 生成配置文件 对主要变量赋值
 
+    Public Sub Renewstat()
+        If Pageinstalled = True Then
+            inpage.Text = "重新安装"
+        End If
+        If Google_installed = True Then
+            inchrome.Text = "重新安装"
+        End If
+        If Excelinstalled = True Then
+            inoffice.Text = "重新安装"
+        End If
+        If Wpsinstalled = True Then
+            inwps.Text = "重新安装"
+        End If
+        If IEinstalled = True Then
+            inIE.Text = "清理缓存"
+        End If
+    End Sub
     Public Sub Config()
 
         winver = GetOSVersion()
         winname = GetOSproductName()
 
-        IE_version = Getappver("C:\Program Files\Internet Explorer\iexplore.exe")
+
         Pageinstalled = False
         Page_version = Checkpage()
         Google_installed = False
@@ -116,6 +137,7 @@ Public Class Form1
     Public Function Checkpage()
         Dim Pv As String
         Pv = 0
+        Pageinstalled = False
         Dim Pagepath = "C:\Program Files (x86)\Zhuozhengsoft\PageOfficeClient\POBrowser.exe"
         If File.Exists(Pagepath) Then
             If Getappver(Pagepath) > 0 Then
@@ -131,7 +153,7 @@ Public Class Form1
 
             End If
         End If
-        Return Pv
+        Page_version = Pv
 
     End Function
     '检查谷歌浏览器
@@ -160,7 +182,6 @@ Public Class Form1
         End If
     End Sub
     '检查wps
-
     Public Sub Wpsck()
         ' 检查 WPS Office 是否已安装
         '计算机\HKEY_CURRENT_USER\Software\Kingsoft\Office\6.0\wpsoffice\Application Settings
@@ -181,6 +202,7 @@ Public Class Form1
             Console.WriteLine("WPS Office 未安装")
         End If
     End Sub
+
     Sub Excelck()
         ' 创建 Excel 应用程序对象
         'Dim excelApp As New Application()
@@ -211,6 +233,12 @@ Public Class Form1
 
 
 
+
+    End Sub
+
+    '检查ie是否安装
+    Sub IEck（）
+        IE_version = Getappver("C:\Program Files\Internet Explorer\iexplore.exe")
 
     End Sub
     '获取exe版本的方法
@@ -247,10 +275,14 @@ Public Class Form1
     '安装page
     Public Sub Installpage()
         '下载file，如果存在可以不下载
+        If File.Exists(Path.Combine(currentDirectory, "posetup.msi")) Then
+            StartLocalProcess(Path.Combine(currentDirectory, "Installpage.bat"))
+        Else
+            'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
+            Console.WriteLine(currentDirectory)
+            StartLocalProcess(Path.Combine(currentDirectory, "Installpage.bat"))
+        End If
 
-        'DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/posetup.msi", Path.Combine(currentDirectory, "posetup.msi"))
-        Console.WriteLine(currentDirectory)
-        StartLocalProcess(Path.Combine(currentDirectory, "Installpage.bat"))
         'Dim Pagecmd As String = "msiexec /i " & Path.Combine(currentDirectory, "posetup.msi") & "/quiet"
         'runCmd(Pagecmd)
 
@@ -259,8 +291,12 @@ Public Class Form1
     '安装谷歌
     Public Sub Installgoogle()
         '安装谷歌浏览器
-        DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/ChromeSetup.exe", Path.Combine(currentDirectory, "ChromeSetup.exe"))
-        StartLocalProcess(Path.Combine(currentDirectory, "ChromeSetup.exe"))
+        If File.Exists(Path.Combine(currentDirectory, "ChromeSetup.exe")) And Google_installed = False Then
+            StartLocalProcess(Path.Combine(currentDirectory, "ChromeSetup.exe"))
+        ElseIf Google_installed = False And File.Exists(Path.Combine(currentDirectory, "ChromeSetup.exe")) = False Then
+            DownloadFile("https://open-pengshen.oss-cn-qingdao.aliyuncs.com/static/tools/ChromeSetup.exe", Path.Combine(currentDirectory, "ChromeSetup.exe"))
+            StartLocalProcess(Path.Combine(currentDirectory, "ChromeSetup.exe"))
+        End If
 
     End Sub
     '安装excel
@@ -270,7 +306,9 @@ Public Class Form1
     End Sub
     '安装ie
     Public Sub InstallIE()
-        StartLocalProcess(Path.Combine(currentDirectory, "Installie.bat"))
+        If IEinstalled = False Then
+            StartLocalProcess(Path.Combine(currentDirectory, "Installie.bat"))
+        End If
 
     End Sub
 
@@ -477,7 +515,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles inpage.LinkClicked, inoffice.LinkClicked, inwps.LinkClicked, inchrome.LinkClicked, LinkLabel1.LinkClicked
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles inpage.LinkClicked, inoffice.LinkClicked, inwps.LinkClicked, inchrome.LinkClicked, inIE.LinkClicked
 
     End Sub
 
